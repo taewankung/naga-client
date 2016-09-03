@@ -1,7 +1,7 @@
 #Naga Client
 
 ##Create by
-  * Aran Khunaree
-  * Phutthewan Yangyuenyong
-  * Chareamchon Seakoo
+  * [Aran Khunaree](https://github.com/NiNiiWs)
+  * [Phutthewan Yangyuenyong](https://github.com/taewankung)
+  * [Chareamchon Seakoo](https://github.com/progreanmer)
 
