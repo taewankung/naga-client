@@ -1,4 +1,4 @@
-#Naga Server
+#Naga Client
 
 ##Create by
   * Aran Khunaree
