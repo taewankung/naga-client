@@ -1,0 +1,4 @@
+.git
+.pyc
+__cache__
+*.egg*
