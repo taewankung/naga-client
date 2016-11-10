@@ -33,7 +33,7 @@ class GameMonitor(threading.Thread):
         self.room_id = room_id
         self.subscribe_topic = 'naga/clients/{}/rooms/{}/synchronize'.format(self.client.client_id, room_id)
         self.publish_topic = 'naga/clients/{}/rooms/{}/update'.format(self.client.client_id, room_id)
-
+        print("start")
         self.mqtt_client.message_callback_add(self.subscribe_topic, self.on_game_message)
         self.start()
 

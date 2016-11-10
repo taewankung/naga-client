@@ -17,7 +17,7 @@ def on_connect(client, userdata, rc):
 
 def on_message(client, userdata, msg):
     payload = json.loads(msg.payload.decode('utf-8'))
-    print(msg.topic+" got "+json.dumps(payload))
+#    print(msg.topic+" got "+json.dumps(payload))
 
 
 class RPC:
@@ -56,7 +56,7 @@ class ConsumeThread(threading.Thread):
             try:
                 self.mqtt_client.loop()
             except Exception as e:
-                print('Exception:', e)
+                print('Exception client:', e)
 
 
 class NagaClient:
@@ -136,7 +136,7 @@ class NagaClient:
         payload = json.dumps(request)
 
         self.mqtt_client.publish(topic, payload, qos, retain)
-        print('topic:', topic,'publish:', payload,)
+#        print('topic:', topic,'publish:', payload,)
 
 
     def call(self, method, args=None):
