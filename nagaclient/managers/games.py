@@ -30,6 +30,10 @@ class GameManager(Manager):
         args = dict(x=x, y=y,msg=msg)
         self.send_message('move_hero', args)
 
+    def attack(self,target,msg=""):
+        args = dict(target=target,msg=msg)
+        self.send_message('attack',args)
+
     def skill_action(self, skill):
         args = dict(skill=skill)
         self.send_message('skill_action', args)
