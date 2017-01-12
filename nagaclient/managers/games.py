@@ -34,6 +34,14 @@ class GameManager(Manager):
         args = dict(target=target,msg=msg)
         self.send_message('attack',args)
 
+    def upgrade_skill(self,skill_num,msg=""):
+        args = dict(skill_num=skill_num,msg=msg)
+        self.send_message('upgrade_skill',args)
+
+    def use_skill(self,skill_num,target=None,msg=""):
+        args = dict(skill_num=skill_num,target=target,msg=msg)
+        self.send_message('use_skill',args)
+
     def skill_action(self, skill):
         args = dict(skill=skill)
         self.send_message('skill_action', args)
