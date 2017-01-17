@@ -7,10 +7,11 @@ class RoomManager(Manager):
         self.current_room = None
 
     def create_room(self, room_name):
-        print("Create Room")
+#        print("Create Room")
         args = dict(room_name = room_name)
-
+#        print(args)
         response = self.call('create_room', args)
+#        print('room resonse: '+str(response))
         if 'room_id' in response['responses']:
             self.join_game(response['responses']['room_id'])
         #    self.client.gm.start_game(response['responses']['room_id'])
@@ -38,6 +39,7 @@ class RoomManager(Manager):
 
     def select_hero(self, hero):
         args = dict(hero=hero, room_id=self.current_room['room_id'])
+        print('select_hero')
         response =self.call('select_hero', args)
         return response
 
@@ -47,4 +49,9 @@ class RoomManager(Manager):
         response = self.call('disconnect_room', args)
         self.current_room = None
 
+        return response
+
+    def start_game(self):
+        args = dict(room_id=self.current_room['room_id'])
+        response = self.call('start_game',args)
         return response

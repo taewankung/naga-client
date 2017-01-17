@@ -1,16 +1,17 @@
 import json
-from .client import ApaimaneeClient
+from .client import NagaClient
+import sys
 
 import traceback
 
 
-class ApaimaneeClientTest:
+class NagaClientTest:
     def __init__(self):
-        self.client = ApaimaneeClient()
+        self.client = NagaClient(rpc_server=True)
 
     def login(self):
 
-        response = self.client.user.login('aran@hotmail.com')
+        response = self.client.user.login('Niniw','12345')
         print('login response: ', response)
 
     def register(self):
@@ -52,6 +53,7 @@ class ApaimaneeClientTest:
             cmd = input('Enter command :')
 
             func = commands.get(cmd, None)
+            print(func)
             if func is not None:
                 try:
                     func()

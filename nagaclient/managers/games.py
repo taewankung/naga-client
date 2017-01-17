@@ -26,6 +26,10 @@ class GameManager(Manager):
         args = kw
         self.send_message('update', args, 0)
 
+    #  def select_hero(self,hero_name='Sinsamut'):
+        #  args = dict(hero_name = hero_name)
+        #  self.send_message('select_hero',args,1)
+
     def move_hero(self, x, y,msg=""):
         args = dict(x=x, y=y,msg=msg)
         self.send_message('move_hero', args)
