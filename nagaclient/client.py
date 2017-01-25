@@ -35,7 +35,7 @@ class RPC:
     def rpc_response(self, client, rpc, msg):
         payload = json.loads(msg.payload.decode('utf-8'))
 
-        print("get response:", payload)
+#        print("get response:", payload)
         if 'message_id' in payload:
             rpc.response[payload['message_id']] = payload
 
@@ -120,6 +120,13 @@ class NagaClient:
         if self.gm:
             self.gm.stop()
 
+    def disconnect_game(self):
+        self.mqtt_client.disconnect()
+        if self.consume_thread:
+            self.consume_thread.stop()
+        if self.gm:
+            self.gm.stop()
+
     def register_callback(self):
         if self._rpc_server:
             print('regist:', 'naga/clients/'+self.client_id+'/response')
@@ -153,7 +160,7 @@ class NagaClient:
         started_date = datetime.datetime.now()
         while not self.rpc.check_response(message_id):
             time.sleep(0.01)
-            print('wait for response')
+#            print('wait for response')
             if datetime.datetime.now() - started_date > datetime.timedelta(seconds=2):
                 raise Exception('RPC ERRPOR TIMEOUT')
 
