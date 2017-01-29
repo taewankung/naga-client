@@ -14,7 +14,7 @@ class UserManager(Manager):
     def login(self, username, password):
         args = dict(username=username, password=password)
         response = self.call('login',args)
-
+        print(response)
         if 'responses' in response:
             self.loggedin_info = response.get('responses')
 

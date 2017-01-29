@@ -127,6 +127,15 @@ class NagaClient:
         if self.gm:
             self.gm.stop()
 
+    def stop_thread(self):
+        self.mqtt_client.disconnect()
+        if self.consume_thread:
+            self.consume_thread.stop()
+            self.consume_thread.join()
+        if self.gm:
+            self.gm.stop()
+            self.gm.join()
+
     def register_callback(self):
         if self._rpc_server:
             print('regist:', 'naga/clients/'+self.client_id+'/response')
