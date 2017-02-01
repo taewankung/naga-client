@@ -62,8 +62,8 @@ class GameManager(Manager):
         args = dict(skill=skill)
         self.send_message('skill_action', args)
 
-    def aliance_message(self,msg,args=dict()):
-        args = dict(msg = msg,
-                    args =args
+    def alliance_message(self,msg_to_team, msg_end_send):
+        args = dict(
+                    msg_to_team = msg_to_team
                 )
-        self.send_message('aliance_message',args)
+        self.send_message('alliance_message',args)
